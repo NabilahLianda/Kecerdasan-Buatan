@@ -7,10 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1I3MMvoHZiHesRJCFI0GTcgEXaNiiydMO
 """
 
-#Instalasi Streamlit & Pyngrok
-
-!pip install streamlit pyngrok -q
-
 #Function Simpan File app.py
 
 from IPython.core.magic import register_cell_magic
@@ -148,15 +144,3 @@ def writefile(line, cell):
 #     st.warning("⚠️ Masukkan minimal 3 data untuk bisa memilih centroid!")
 #
 
-#Set Token Ngrok
-
-from pyngrok import conf
-conf.get_default().auth_token = "2yWwjHGZG2HUta7SDLzgJlWPwhm_wZRC9CueQrnPSzFGzCF4"
-
-#Run Streamlit & URL Ngrok
-
-!streamlit run app.py &>/content/log.txt &
-
-from pyngrok import ngrok
-public_url = ngrok.connect(8501)
-print("🌐 Akses aplikasi di:", public_url)
